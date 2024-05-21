@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { FlatList, StyleSheet, Text, View } from 'react-native';
-import { Link } from 'expo-router';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {Link} from 'expo-router';
 
 const screens = [
   {
@@ -56,15 +56,17 @@ interface ItemProps {
     icon: string;
     title: string;
     path: string;
-  },
+  };
 }
 
-function Item({ data }: ItemProps) {
+function Item({data}: ItemProps) {
   return (
     <View style={styles.separator}>
       <Link href={data.path} style={styles.item}>
         <Text style={styles.title}>
-          {data.icon}{'  '}{data.title}
+          {data.icon}
+          {'  '}
+          {data.title}
         </Text>
       </Link>
     </View>
@@ -76,9 +78,7 @@ export default function Menu() {
     <FlatList
       data={screens}
       initialNumToRender={screens.length}
-      renderItem={({ item }) => (
-        <Item data={item} />
-      )}
+      renderItem={({item}) => <Item data={item} />}
     />
   );
 }

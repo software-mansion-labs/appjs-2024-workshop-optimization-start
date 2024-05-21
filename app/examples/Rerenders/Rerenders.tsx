@@ -1,4 +1,4 @@
-import { Alert, Button, StyleSheet, Text, TextProps, View } from 'react-native';
+import {Alert, Button, StyleSheet, Text, TextProps, View} from 'react-native';
 
 import React from 'react';
 
@@ -12,7 +12,7 @@ interface ElephantProps extends TextProps {
   count: number;
 }
 
-function Elephant({ count, style }: ElephantProps) {
+function Elephant({count, style}: ElephantProps) {
   sleep(500);
   return <Text style={style}>I'm an elephant {count}!</Text>;
 }
@@ -26,7 +26,7 @@ interface MyButtonPress {
   onPress: () => void;
 }
 
-function MyButton({ title, onPress }: MyButtonPress) {
+function MyButton({title, onPress}: MyButtonPress) {
   return <Button title={title} onPress={onPress} color="red" />;
 }
 
@@ -39,14 +39,14 @@ export default function Rerenders() {
   const [state, setState] = React.useState(false);
 
   const increment = () => {
-    setCount((c) => c + 1);
+    setCount(c => c + 1);
   };
 
   const toggle = () => {
-    setState((s) => !s);
+    setState(s => !s);
   };
 
-  const data = React.useMemo(() => ({ count }), [count]);
+  const data = React.useMemo(() => ({count}), [count]);
 
   const callback = React.useCallback(() => {
     Alert.alert(JSON.stringify(data));

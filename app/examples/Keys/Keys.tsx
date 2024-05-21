@@ -6,9 +6,9 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
-function Header({ data }: { data: any }) {
+function Header({data}: {data: any}) {
   useEffect(() => {
     console.log(Date.now(), 'MOUNT');
     return () => console.log(Date.now(), 'UNMOUNT');

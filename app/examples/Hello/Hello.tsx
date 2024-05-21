@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Button, StyleSheet, Text, View } from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
 
-import { useCount } from 'usecount-ts';
+import {useCount} from 'usecount-ts';
 
 export default function Hello() {
   const [count, increment] = useCount(0);

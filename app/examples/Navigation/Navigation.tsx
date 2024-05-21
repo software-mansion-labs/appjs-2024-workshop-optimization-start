@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Text, View } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Text, View} from 'react-native';
 
 // JSStack
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 // NativeStack
@@ -22,18 +22,18 @@ function makeMoreScreens(navigation: any) {
   }
 }
 
-function Screen({ navigation }: { navigation: any }) {
+function Screen({navigation}: {navigation: any}) {
   const [screenId] = useState(screenIndex);
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    navigation.setOptions({ title: 'Screen ' + screenIndex });
+    navigation.setOptions({title: 'Screen ' + screenIndex});
     makeMoreScreens(navigation);
   }, [navigation]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCounter((prev) => prev + 1);
+      setCounter(prev => prev + 1);
     }, 1000);
     return () => {
       clearInterval(interval);
@@ -55,7 +55,7 @@ function Screen({ navigation }: { navigation: any }) {
 
 export default function Navigation() {
   return (
-    <Stack.Navigator screenOptions={{ detachPreviousScreen: false }}>
+    <Stack.Navigator screenOptions={{detachPreviousScreen: false}}>
       <Stack.Screen name={'Screen'} component={Screen} />
     </Stack.Navigator>
   );

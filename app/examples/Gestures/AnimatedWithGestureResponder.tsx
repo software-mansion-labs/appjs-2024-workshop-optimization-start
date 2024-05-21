@@ -1,12 +1,5 @@
-import {
-  Animated,
-  InteractionManager,
-  PanResponder,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
+import {Animated, PanResponder, StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
 
 function Ball() {
   const pan = useRef(new Animated.ValueXY()).current;
@@ -15,8 +8,8 @@ function Ball() {
     PanResponder.create({
       onMoveShouldSetPanResponder: () => true,
       onPanResponderMove: Animated.event(
-        [null, { dx: pan.x, dy: pan.y }],
-        { useNativeDriver: false }, // doesn't work with native driver :/
+        [null, {dx: pan.x, dy: pan.y}],
+        {useNativeDriver: false}, // doesn't work with native driver :/
       ),
       onPanResponderRelease: () => {
         pan.extractOffset();
@@ -28,7 +21,7 @@ function Ball() {
     <View>
       <Animated.View
         style={{
-          transform: [{ translateX: pan.x }, { translateY: pan.y }],
+          transform: [{translateX: pan.x}, {translateY: pan.y}],
         }}
         {...panResponder.panHandlers}>
         <View style={styles.ball} />
@@ -49,7 +42,7 @@ export function AnimatedWithGestureResponder() {
     }, 100);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [counter]);
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Animated + GestureResponder</Text>

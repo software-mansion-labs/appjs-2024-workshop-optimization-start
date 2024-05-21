@@ -1,5 +1,5 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
+import {Image, StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
 
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder-expo';
 
@@ -52,7 +52,7 @@ function PlaceholderItem() {
   );
 }
 
-function Item({ onLoad }: { onLoad: () => void }) {
+function Item({onLoad}: {onLoad: () => void}) {
   return (
     <View style={styles.itemHolder}>
       <Image
@@ -101,7 +101,7 @@ export default function Images() {
   return (
     <View style={styles.container}>
       {items}
-      <View style={{ height: 0, overflow: 'hidden' }}>{loadingItem}</View>
+      <View style={{height: 0, overflow: 'hidden'}}>{loadingItem}</View>
     </View>
   );
 }

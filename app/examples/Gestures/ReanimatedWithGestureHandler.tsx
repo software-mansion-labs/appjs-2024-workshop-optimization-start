@@ -6,33 +6,29 @@ import {
   Gesture,
   GestureDetector,
   GestureHandlerRootView,
-  GestureStateManager,
-  GestureTouchEvent,
   GestureUpdateEvent,
   PanGestureChangeEventPayload,
 } from 'react-native-gesture-handler';
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {StyleSheet, Text} from 'react-native';
 
 function Ball() {
-  const offset = useSharedValue({ x: 0, y: 0 });
+  const offset = useSharedValue({x: 0, y: 0});
 
   const animatedStyles = useAnimatedStyle(() => {
     return {
-      transform: [
-        { translateX: offset.value.x },
-        { translateY: offset.value.y },
-      ],
+      transform: [{translateX: offset.value.x}, {translateY: offset.value.y}],
     };
   });
 
-  const gesture = Gesture.Pan()
-    .onChange((e: GestureUpdateEvent<PanGestureChangeEventPayload>) => {
+  const gesture = Gesture.Pan().onChange(
+    (e: GestureUpdateEvent<PanGestureChangeEventPayload>) => {
       offset.value = {
         x: e.changeX + offset.value.x,
         y: e.changeY + offset.value.y,
       };
-    });
+    },
+  );
 
   return (
     <GestureDetector gesture={gesture}>
@@ -50,7 +46,7 @@ export function ReanimatedWithGestureHandler() {
     }, 100);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [counter]);
   return (
     <GestureHandlerRootView style={styles.container}>
       <Text style={styles.text}>Reanimated + GestureHandler</Text>
