@@ -32,9 +32,6 @@ function Ball() {
         x: e.changeX + offset.value.x,
         y: e.changeY + offset.value.y,
       };
-    })
-    .onTouchesMove((e: GestureTouchEvent, state: GestureStateManager) => {
-      state.activate();
     });
 
   return (
